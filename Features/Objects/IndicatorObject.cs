@@ -74,5 +74,9 @@ public class IndicatorObject : MapEditorObject
 		}
 	}
 
-	public void Update() => transform.position = Dictionary[this].transform.position;
+	public void Update()
+	{
+		Dictionary[this].transform.GetLocalPositionAndRotation(out Vector3 position, out Quaternion rotation);
+		transform.SetLocalPositionAndRotation(position, rotation);
+	}
 }
